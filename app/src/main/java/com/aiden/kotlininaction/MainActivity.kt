@@ -6,11 +6,17 @@ import android.util.Log
 import com.aiden.kotlininaction.ch2.*
 import com.aiden.kotlininaction.ch2.Color.*;
 import com.aiden.kotlininaction.ch2.Function
+import com.aiden.kotlininaction.ch3.DefaultParameter
+import com.aiden.kotlininaction.ch3.JoinToString
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        /*
+        CH2
 
         functionNotReturn()
 
@@ -73,5 +79,31 @@ class MainActivity : AppCompatActivity() {
         val complicatedWhen = ComplicatedWhen()
         val num = ComplicatedWhen.Num(6)
         Log.e("KEG","complicatedWhen : "+ complicatedWhen.evalWithLogging(num))
+    } */
+
+        /*
+        CH3
+
+        callJointoString()
+         */
+        callJoinToStringDefaultParameter()
+
     }
+
+    fun callJointoString() {
+        val joinToString = JoinToString()
+        val list = listOf(1,2,3)
+        Log.e("KEG"," list.size : "+ list.size);
+        Log.e("KEG","list. : "+ list.get(1))
+        Log.e("KEG","joinToString : " + joinToString.joinToSTring(list, "; ", "(", ")") )
+    }
+
+    fun callJoinToStringDefaultParameter() {
+        val defaultParameter = DefaultParameter()
+        val list = listOf(1,2,3)
+
+        Log.e("KEG","defaultParameter : "+ (list.joinToString(separator = "; ",
+            prefix = "(", postfix = ")")))
+    }
+
 }
